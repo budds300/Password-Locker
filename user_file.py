@@ -105,4 +105,9 @@ class User:
         for user in cli.user_list:
             if user.username == username:
                 return user 
-        
+    def user_exists(cli,username):
+        ''' '''
+        for user in cli:
+            if user.username == username:
+                return True
+            return False
