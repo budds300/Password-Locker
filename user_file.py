@@ -102,7 +102,7 @@ class User:
         delete_user method deletes a saved user from user_list
         '''
         User.user_list.remove(self)
-
+    @classmethod
     def find_by_username(cil, username):
         '''
         takes in a username and returns a user that matches that username.
@@ -114,7 +114,7 @@ class User:
         for user in cli.user_list:
             if user.username == username:
                 return user
-
+    @classmethod
     def user_exists(cli, username):
         '''
          Method that checks if a user exists in the user_list.
@@ -127,7 +127,7 @@ class User:
             if user.username == username:
                 return True
             return False
-
+    @classmethod
     def display_user(cli):
         '''
            method which returns user list
