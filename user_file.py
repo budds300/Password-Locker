@@ -80,7 +80,7 @@ class User:
     '''
     user_list = []
 
-    def _init_(self, username, password):
+    def __init__(self, username, password):
         '''
          __init__ method for definition of object properties.
     Args:
