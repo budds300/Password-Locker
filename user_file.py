@@ -89,5 +89,20 @@ class User:
         username:Username of the new user.
         password:Password of the new user.
     '''
-    self.username = username
-    self.password = password
+        self.username = username
+        self.password = password
+        
+    def save(self):
+        ''' '''
+        User.user_list.append(self)
+        
+    def delete(self):
+        ''' '''
+        User.user_list.remove(self)
+    
+    def find_user(cil,username):
+        ''' '''
+        for user in cli.user_list:
+            if user.username == username:
+                return user 
+        
