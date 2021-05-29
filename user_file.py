@@ -93,11 +93,15 @@ class User:
         self.password = password
         
     def save(self):
-        ''' '''
+        ''' 
+        save_user method saves user objects into user_list
+        '''
         User.user_list.append(self)
         
     def delete(self):
-        ''' '''
+        '''
+        delete_user method deletes a saved user from user_list
+        '''
         User.user_list.remove(self)
     
     def find_user(cil,username):
@@ -111,3 +115,9 @@ class User:
             if user.username == username:
                 return True
             return False
+    
+    def copy_user(username):
+        ''' '''
+        user_found = User.find_user(username)
+        pyperclip.copy(user_found.username)
+            
