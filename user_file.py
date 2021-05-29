@@ -59,18 +59,35 @@ class Credentials:
         return False
 
 
-@classmethod
-def display_credential(cls):
-    '''
-    This method displays/returns the credential list
-    '''
-    return cls.credential_list
+    @classmethod
+    def display_credential(cls):
+        '''
+        This method displays/returns the credential list
+        '''
+        return cls.credential_list
 
 
-@classmethod
-def copy_credential(cls, account_name):
+    @classmethod
+    def copy_credential(cls, account_name):
+        '''
+        Method copys credentials
+        '''
+        credential_found = Credentials.find_account_name(account_name)
+        pyperclip.copy(credential_found.account_name)
+        
+class User:
     '''
-    Method copys credentials
+    Generates details about users
     '''
-    credential_found = Credentials.find_account_name(account_name)
-    pyperclip.copy(credential_found.account_name)
+    user_list = []
+    
+    def _init_ (self, username, password):
+        '''
+         __init__ method for definition of object properties.
+    Args:
+        
+        username:Username of the new user.
+        password:Password of the new user.
+    '''
+    self.username = username
+    self.password = password
