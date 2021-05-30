@@ -71,7 +71,51 @@ class Test(unittest.TestCase):
         '''
         Test_user_display is to test if the display is working accordingly
         '''
-        self.assertEqual(User.display_user(),User.user_list)           
+        self.assertEqual(User.display_user(),User.user_list)       
+        
+class Test(unittest.TestCase):
+    ''' 
+      Test class that defines test cases for the Credential class
+   Args:
+       unittest.TestCase: TestCase class helping to create test cases
+   '''
+    def setUp(self):
+        '''
+        
+        '''
+        self.new_user = Credentials('Github','budds300','opensaysme') # create new credentials
+    
+    Credentials.credential_list = []
+    
+    def tearDown(self):
+        ''' 
+        clears tests after a test has been run
+        '''
+        
+        Credentials.credential_list=[]
+    
+    def test_init_credentials(self):
+        ''' '''
+        self.assertEqual(self.new_user.account_name,"Github")
+        self.assertEqual(self.new_user.username,"budds300")
+        self.assertEqual(self.new_user.password,"opensaysme")
+        
+    def test_save_credentials(self):
+        '''
+        
+        '''
+        self.new_user.save_credential()
+        self.assertEqual(len(Credentials.credential_list),1)
+       
+    def test_save_multiple_credentials(self):
+        ''' 
+        
+        '''
+        self.new_user.save_credential()
+        new_credentials = Credentials('Facebook','Tamminga','knockknock')
+        new_credentials.save_credential()
+        
+        self.assertEqual(len(Credentials.credential_list),2)
               
 if __name__ == '__main__':
     unittest.main()
