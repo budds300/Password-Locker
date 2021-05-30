@@ -28,10 +28,10 @@ class Credentials:
         '''
         This method deletes credential objects from credential list
         '''
-        Credential.credential_list.remove(self)
+        Credentials.credential_list.remove(self)
 
     @classmethod
-    def find_account_name(cls, user_name):
+    def find_account_name(cli, account_name):
         '''
         method that takes in the account name and returns a credential that matches that account name
             Args:
@@ -39,7 +39,7 @@ class Credentials:
         Returns:
             Credentials of person that matches the account name
     '''
-        for credential in cls.credential_list:
+        for credential in cli.credential_list:
             if credential.account_name == account_name:
                 return credential
 

@@ -126,6 +126,18 @@ class Test(unittest.TestCase):
         new_credentials.save_credential()
         
         self.new_user.delete_credential()
-        self.assertEqual(len(Credentials.credential_list),1)      
+        self.assertEqual(len(Credentials.credential_list),1) 
+        
+    def test_find_credentials_by_username(self): 
+        ''' 
+        
+        '''
+        self.new_user.save_credential()
+        new_credentials=Credentials('Google','budds300','whatdoyouthink?')  
+        new_credentials.save_credential()
+        
+        found_credentials = Credentials.find_account_name("Google")
+        self.assertEqual(found_credentials.password,new_credentials.password)
+          
 if __name__ == '__main__':
     unittest.main()
