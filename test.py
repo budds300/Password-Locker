@@ -82,6 +82,7 @@ class TestCredentials(unittest.TestCase):
     def setUp(self):
         '''
         
+        Set up method to run before each test cases.
         '''
         self.new_user = Credentials('Github','budds300','opensaysme') # create new credentials
     
@@ -95,14 +96,16 @@ class TestCredentials(unittest.TestCase):
         Credentials.credential_list=[]
     
     def test_init_credentials(self):
-        ''' '''
+        ''' 
+        test_init test case to test if the object is initialized properly
+        '''
         self.assertEqual(self.new_user.account_name,"Github")
         self.assertEqual(self.new_user.username,"budds300")
         self.assertEqual(self.new_user.password,"opensaysme")
         
     def test_save_credentials(self):
         '''
-        
+        test_save_credentials test case to test if the credentials object has been saved into the credentials list
         '''
         self.new_user.save_credential()
         self.assertEqual(len(Credentials.credential_list),1)
@@ -119,7 +122,7 @@ class TestCredentials(unittest.TestCase):
         
     def test_delete_credentials (self):
         ''' 
-        
+        tests if we can delete a credential from our credentials list
         '''
         self.new_user.save_credential()
         new_credentials=Credentials('Google','budds300','whatdoyouthink?')
@@ -130,7 +133,7 @@ class TestCredentials(unittest.TestCase):
         
     def test_find_credentials_by_username(self): 
         ''' 
-        
+        to check if we can find a credential by the account name and display more information about it
         '''
         self.new_user.save_credential()
         new_credentials=Credentials('Google','budds300','whatdoyouthink?')  
@@ -141,7 +144,7 @@ class TestCredentials(unittest.TestCase):
         
     def test_exists_credentials (self):
         ''' 
-        
+        checks if we can return a boolean if we cannot find the credentials
         '''
         
         self.new_user.save_credential()
@@ -153,7 +156,7 @@ class TestCredentials(unittest.TestCase):
         
     def test_display_credentials (self):
         '''
-        
+        returns a list of all credentials saved 
         '''
         self.assertEqual(Credentials.display_credential(),Credentials.credential_list)
        
