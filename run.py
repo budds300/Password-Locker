@@ -1,7 +1,7 @@
+#!/usr/bin/env python3.8
 import string
 import random
-import choice
-from users import User, Credentials
+from user_file import User, Credentials
 
 def create_user(username,password):
     '''
@@ -14,7 +14,7 @@ def save_user(user):
     '''
     Function to save user
     '''
-    user.save_user() 
+    user.save_user()
     
 def find_user(username):
      '''
@@ -25,7 +25,7 @@ def check_existing_user(username):
       '''
     Function that check if a user exists with that username and return a Boolean
     '''
-      return User.user_exist(username)
+      return User.user_exists(username)
   
 def create_credentials(account_name, username, password):
     ''' 
@@ -38,25 +38,25 @@ def save_credential(account_name):
     ''' 
     saves a credential
     '''
-    Credential.save_credential(account_name)
+    account_name.save_credential()
     
 def delete_credential(account_name):
     ''' 
     deletes a credential
     '''
-    Credentials.delete(account_name)
+    account_name.delete_credential()
     
 def find_credential(account_name):
     ''' 
     finds a credential by account name and returns the credential
     '''
-    return Credentials.find_credential(account_name)
+    return Credentials.find_account_name(account_name)
 
 def check_credential_existing(account_name):
     '''
     chechs if a credential exists with that account_name and retruns a boolean value
     '''
-    return Credentials.exists(account_name)
+    return Credentials.credential_exist(account_name)
 def display_credential():
     ''' 
     returns all saved credentials
@@ -64,7 +64,7 @@ def display_credential():
     return Credentials.display_credential()
 
 def main():
-    print('Hello Wlcome to your User List. What is your name?')
+    print('Hello Welcome to your User List. What is your name?')
     user_name= input()
     print(f'Hello {user_name}. What do you like to do?')
     print('\n')
@@ -120,7 +120,7 @@ def main():
             username = input()
             print("Enter password")
             password = input()
-            save_credential(create_credential(account_name, username,password))
+            save_credential(create_credentials(account_name, username, password))
             print("\n")
             print(f"You have sccessfylly created a new credential for your new {account_name} account \n")
             
@@ -175,7 +175,7 @@ def main():
             
             
 if __name__ == '__main__':
-    main()
+      main()
                     
                 
                     

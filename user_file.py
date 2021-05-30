@@ -75,65 +75,65 @@ class Credentials:
 
 
 class User:
-    '''
-    Generates details about users
-    '''
-    user_list = []
+        '''
+        Generates details about users
+        '''
+        user_list = []
 
-    def __init__(self, username, password):
-        '''
-         __init__ method for definition of object properties.
-    Args:
-
-        username:Username of the new user.
-        password:Password of the new user.
-    '''
-        self.username = username
-        self.password = password
-
-    def save(self):
-        '''
-        save_user method saves user objects into user_list
-        '''
-        User.user_list.append(self)
-
-    def delete(self):
-        '''
-        delete_user method deletes a saved user from user_list
-        '''
-        User.user_list.remove(self)
-
-    @classmethod
-    def find_by_username(cil, username):
-        '''
-        takes in a username and returns a user that matches that username.
-    Args:
-        username: username that is searched for.
-    Returns:
-        user that matches the username.
-        '''
-        for user in cli.user_list:
-            if user.username == username:
-                return user
-
-    @classmethod
-    def user_exists(cli, username):
-        '''
-         Method that checks if a user exists in the user_list.
+        def __init__(self, username, password):
+            '''
+            __init__ method for definition of object properties.
         Args:
-            username: Username to search if it exists
-        Returns :
-            Boolean: True or false depending on if the user exists or not
-        '''
-        for user in cli.user_list:
-            if user.username == username:
-                return True
 
-        return False
-
-    @classmethod
-    def display_user(cli):
+            username:Username of the new user.
+            password:Password of the new user.
         '''
-           method which returns user list
-       '''
-        return cli.user_list
+            self.username = username
+            self.password = password
+
+        def save_user(self):
+            '''
+            save_user method saves user objects into user_list
+            '''
+            User.user_list.append(self)
+
+        def delete(self):
+            '''
+            delete_user method deletes a saved user from user_list
+            '''
+            User.user_list.remove(self)
+
+        @classmethod
+        def find_by_username(cil, username):
+            '''
+            takes in a username and returns a user that matches that username.
+        Args:
+            username: username that is searched for.
+        Returns:
+            user that matches the username.
+            '''
+            for user in cli.user_list:
+                if user.username == username:
+                    return user
+
+        @classmethod
+        def user_exists(cli, username):
+            '''
+            Method that checks if a user exists in the user_list.
+            Args:
+                username: Username to search if it exists
+            Returns :
+                Boolean: True or false depending on if the user exists or not
+            '''
+            for user in cli.user_list:
+                if user.username == username:
+                    return True
+
+            return False
+
+        @classmethod
+        def display_user(cli):
+            '''
+            method which returns user list
+        '''
+            return cli.user_list
