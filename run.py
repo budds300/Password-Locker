@@ -63,4 +63,32 @@ def display_credential():
     '''
     return Credentials.display_credential()
 
-def
+def main():
+    print('Hello Wlcome to your User List. What is your name?')
+    user_name= input()
+    print(f'Hello {user_name}. What do you like to do?')
+    print('\n')
+    
+    while True:
+        print("Use these short codes: ca - create a new user, si - sign in to your account , dc - display credentials, fa - find account, fu - find a user, cc - create a new credential, gp - generat a new password, da - delete account, ex - exit user list")
+        in_short_code = input().lower()
+        
+        
+        if in_short_code == 'ca':
+            print('Create a new account by following the steps below:')
+            print('Enter a username')
+            username = input()
+            print('Enter password')
+            password = input()
+            
+            save_user(create_user(username,password))
+            print('\n')
+            print(f'Thankyou {username}, you may now proceed to open your account')
+            print('\n')
+            
+        elif in_short_code == 'si':
+            print('\n')
+            print('Enter your account username')
+            user_name
+            
+            
