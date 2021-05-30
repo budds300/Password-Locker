@@ -89,6 +89,95 @@ def main():
         elif in_short_code == 'si':
             print('\n')
             print('Enter your account username')
-            user_name
+            username= input()
+            print('Enter password')
+            password = input()
+            if check_existing_user(username):
+                save_user= find_user(username)
+                print(f'Welcome to your account {saved_user.username}')
+                print('\n')
+                
+        elif in_short_code == 'fu':
+            print(" \n Enter any username to find user: \n")
+            search_username = input()
+            if check_existing_user(search_username):
+                search_user= find_user(search_username)
+                print(f'{search_user.username}')
+                print(f'Password .....{search_user.password}')
+                
+            else:
+                print("Sorry, This account doesn't exist!")
+                
+        elif in_short_code == 'ex':
+            print("Try again later,Goodbye!...")
+            break
+        
+        elif in_short_code == 'cc':
+            print("\n Follow the following steps to create a new credential \n")
+            print("Enter the account name i.e Instagram/Twitter/Facebook/tiktok/Snapchat")
+            account_name= input()
+            print("Enter your username for the new account:")
+            username = input()
+            print("Enter password")
+            password = input()
+            save_credential(create_credential(account_name, username,password))
+            print("\n")
+            print(f"You have sccessfylly created a new credential for your new {account_name} account \n")
+            
+        elif in_short_code== "gp":
+            alpha= string.ascii_letters + string.digits
+            password= ''.join(choice(alpha) for i in range(8))
+            print(f'Your new generated password is: {password}\n')
+            
+        elif in_short_code == 'dc':
+            print('\n')
+            if display_credential():
+                print('Below is a list of all credentials: \n \n')
+                for credential in display_credential():
+                    print(f'Name of Account:{credential.account_name}')
+                    print (f'Username:{credential.username}')
+                    print(f'Password: {credential.password}')
+                    print('\n')
+                    
+            else:
+                print('\n Sorry, You do not have any credentials to display')
+                
+        elif in_short_code== 'fa':
+            print('Enter name of account you would wish to search for')
+            search_account_name = input()
+            if check_credential_existing(search_account_name):
+                search_credentials = find_credentials(search_account_name)
+                print(f'Name of the account: {search_account_name}')
+                print(f'Account Username: {search_credentials.username}')
+                print(f'Account Password: {search_credentials.password}')
+                
+            else:
+                print("Sorry, The entered credential does not exist")
+                
+        elif in_short_code == 'da':
+            print("Which account do you wish to delete?")
+            delete_account_name=input()
+            if check_credential_existing(delete_account_name):
+                search_delete_credential = find_credential(delete_account_name)
+                delete_credential(search_delete_credential)
+                
+                print(f"Your {delete_account_name} credentials have been successfully deleted")
+                
+            else:
+                print("Sorry , Credential does not exist")
+                
+        elif in_short_code == 'ex':
+            print("Goodbye ...")
+            break
+        
+        else:
+            print("short code not found,Please use the short codes")
+            
+            
+if __name__ == '__main__':
+    main()
+                    
+                
+                    
             
             
