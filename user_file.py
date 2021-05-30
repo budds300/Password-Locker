@@ -28,7 +28,7 @@ class Credentials:
         '''
         This method deletes credential objects from credential list
         '''
-        credential.credential_list.remove(self)
+        Credential.credential_list.remove(self)
 
     @classmethod
     def find_account_name(cls, user_name):
