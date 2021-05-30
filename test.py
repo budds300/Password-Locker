@@ -56,6 +56,22 @@ class Test(unittest.TestCase):
           self.new_user.delete()
           self.assertEqual(len(User.user_list),1)
           
-          def test_find_user
+    def test_user_exists(self):
+        '''
+        Test_find_by_username is used to test if it's possible to find an existing username
+        '''
+        self.new_user.save()
+        test_user = User('Tamminga','0000') # new user
+        test_user.save()
+        
+        exist_user = User.user_exists('Tamminga')
+        self.assertTrue(exist_user)
+        
+    def test_user_display (self):
+        '''
+        Test_user_display is to test if the display is working accordingly
+        '''
+        self.assertEqual(User.display_user(),User.user_list)           
+              
 if __name__ == '__main__':
     unittest.main()

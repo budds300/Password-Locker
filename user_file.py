@@ -123,10 +123,11 @@ class User:
         Returns :
             Boolean: True or false depending on if the user exists or not
         '''
-        for user in cli:
+        for user in cli.user_list:
             if user.username == username:
                 return True
-            return False
+        
+        return False
     @classmethod
     def display_user(cli):
         '''
