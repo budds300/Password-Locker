@@ -1,4 +1,6 @@
 import pyperclip
+import string
+
 
 
 class Credentials:
@@ -11,6 +13,7 @@ class Credentials:
         '''
         __init__ method that helps us define properties for our objects.
             Args:
+            account_name:New credentials account name.
             username: New credential username
             password: New credential password
             '''
@@ -52,8 +55,8 @@ class Credentials:
         Returns:
             Boolean:True or false depending on if the credential exists
             '''
-        for contact in cls.contact_list:
-            if contact.phone_number == number:
+        for credential in cls.credential_list:
+            if credential.account_name == account_name:
                 return True
 
         return False
@@ -66,10 +69,7 @@ class Credentials:
         return cls.credential_list
 
     @classmethod
-    def copy_credential(cls, account_name):
-        '''
-        Method copys credentials
-        '''
+    def copy_account_name(cls, account_name):
         credential_found = Credentials.find_account_name(account_name)
         pyperclip.copy(credential_found.account_name)
 
@@ -102,6 +102,7 @@ class User:
         delete_user method deletes a saved user from user_list
         '''
         User.user_list.remove(self)
+
     @classmethod
     def find_by_username(cil, username):
         '''
@@ -114,6 +115,7 @@ class User:
         for user in cli.user_list:
             if user.username == username:
                 return user
+
     @classmethod
     def user_exists(cli, username):
         '''
@@ -126,8 +128,9 @@ class User:
         for user in cli.user_list:
             if user.username == username:
                 return True
-        
+
         return False
+
     @classmethod
     def display_user(cli):
         '''

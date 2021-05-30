@@ -73,7 +73,7 @@ class Test(unittest.TestCase):
         '''
         self.assertEqual(User.display_user(),User.user_list)       
         
-class Test(unittest.TestCase):
+class TestCredentials(unittest.TestCase):
     ''' 
       Test class that defines test cases for the Credential class
    Args:
@@ -138,6 +138,35 @@ class Test(unittest.TestCase):
         
         found_credentials = Credentials.find_account_name("Google")
         self.assertEqual(found_credentials.password,new_credentials.password)
+        
+    def test_exists_credentials (self):
+        ''' 
+        
+        '''
+        
+        self.new_user.save_credential()
+        new_credentials=Credentials('Google','budds300','whatdoyouthink?')  
+        new_credentials.save_credential()
+        
+        existing_credentials= Credentials.credential_exist("Google")
+        self.assertTrue(existing_credentials)
+        
+    def test_display_credentials (self):
+        '''
+        
+        '''
+        self.assertEqual(Credentials.display_credential(),Credentials.credential_list)
+       
+    def test_copy_account_name(self):
+        '''
+        test to confirm we are copying the account name from a found credentials
+        '''
+
+        self.new_user.save_credential()
+        Credentials .copy_account_name("Facebook")
+
+        self.assertEqual(self.new_credential.account_name,pyperclip.paste())
+
           
 if __name__ == '__main__':
     unittest.main()
