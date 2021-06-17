@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.8
 import string
 import random
-from user_file import User, Credentials
+from user_file import User,Credentials
 
 def create_user(username,password):
     '''
@@ -14,7 +14,7 @@ def save_user(user):
     '''
     Function to save user
     '''
-    user.save_user()
+    user.save()
     
 def find_user(username):
      '''
@@ -80,7 +80,6 @@ def main():
             username = input()
             print('Enter password')
             password = input()
-            
             save_user(create_user(username,password))
             print('\n')
             print(f'Thankyou {username}, you may now proceed to open your account')

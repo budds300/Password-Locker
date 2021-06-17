@@ -17,9 +17,9 @@ class Credentials:
             username: New credential username
             password: New credential password
             '''
-        self.account_name = account_name
-        self.username = username
-        self.password = password
+        self.account_name =account_name
+        self.username =username
+        self.password =password
 
     def save_credential(self):
         '''
@@ -69,42 +69,40 @@ class Credentials:
         return cls.credential_list
 
     @classmethod
-    def copy_account_name(cls, account_name):
-        credential_found = Credentials.find_account_name(account_name)
+    def copy_account_name(cls, account):
+        credential_found = Credentials.find_account_name(account)
         pyperclip.copy(credential_found.account_name)
 
 
 class User:
-        '''
-        Generates details about users
-        '''
-        user_list = []
+    '''
+     Generates details about users
+     '''
+    user_list = []
+    
+        
 
-        def __init__(self, username, password):
-            '''
-            __init__ method for definition of object properties.
+    def __init__(self, username, password):
+         '''
+      __init__ method for definition of object properties.
         Args:
 
-            username:Username of the new user.
-            password:Password of the new user.
+        username:Username of the new user.
+         password:Password of the new user.
         '''
-            self.username = username
-            self.password = password
+         self.username = username
+         self.password = password
 
-        def save_user(self):
-            '''
-            save_user method saves user objects into user_list
-            '''
-            User.user_list.append(self)
+    
 
-        def delete(self):
+    def delete(self):
             '''
             delete_user method deletes a saved user from user_list
             '''
             User.user_list.remove(self)
 
-        @classmethod
-        def find_by_username(cil, username):
+    @classmethod
+    def find_by_username(cil, username):
             '''
             takes in a username and returns a user that matches that username.
         Args:
@@ -116,8 +114,8 @@ class User:
                 if user.username == username:
                     return user
 
-        @classmethod
-        def user_exists(cli, username):
+    @classmethod
+    def user_exists(cli, username):
             '''
             Method that checks if a user exists in the user_list.
             Args:
@@ -131,8 +129,8 @@ class User:
 
             return False
 
-        @classmethod
-        def display_user(cli):
+    @classmethod
+    def display_user(cli):
             '''
             method which returns user list
         '''
