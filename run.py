@@ -10,11 +10,11 @@ def create_user(username,password):
     new_user= User(username,password)
     return new_user
 
-def save_user(user):
+def save_user(username):
     '''
     Function to save user
     '''
-    user.save()
+    username.save()
     
 def find_user(username):
      '''
@@ -80,7 +80,7 @@ def main():
             username = input()
             print('Enter password')
             password = input()
-            save_user(create_user(username,password))
+            save_user(username)(create_user(username,password))
             print('\n')
             print(f'Thankyou {username}, you may now proceed to open your account')
             print('\n')
@@ -174,7 +174,7 @@ def main():
             
             
 if __name__ == '__main__':
-      main()
+        main()
                     
                 
                     

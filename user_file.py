@@ -92,6 +92,12 @@ class User:
         '''
          self.username = username
          self.password = password
+         
+    def save(self):
+        '''
+        save user from user list
+        '''
+        User.user_list.append(self)
 
     
 
